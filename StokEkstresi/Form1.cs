@@ -83,7 +83,6 @@ namespace StokEkstresi
             // excel in içine workbook oluştur
             var workbook = app.Workbooks.Add(Type.Missing);
 
-            // uygulamanın arkasında excel açılsın
             app.Visible = true;
 
             // Sayfa1 diye bir worksheet oluştur ve bu worksheet i default yap
@@ -92,7 +91,7 @@ namespace StokEkstresi
             worksheet = workbook.ActiveSheet;
 
             // worksheet e isim ver 
-            worksheet.Name = "Stok Ekstersi";
+            worksheet.Name = "Stok Ekstresi";
 
             // Excel deki sütunları doldur  
             for (int i = 1; i < DgvStokEkstreListesi.Columns.Count + 1; i++)
@@ -113,7 +112,7 @@ namespace StokEkstresi
             var desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
             //excel dosyasına bugünün tarihini formatlayarak ver
-            var fileName = DateTime.Now.ToString("yyyy-MM-dd");
+            var fileName = Guid.NewGuid();
 
             // dosyayı masaüstüne kaydet
             workbook.SaveAs($"{desktopPath}\\{fileName}.xlsx", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
